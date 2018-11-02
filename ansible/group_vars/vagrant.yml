@@ -1,0 +1,113 @@
+---
+# インストールするツール
+tool_install_list:
+  - git
+  - vim
+
+# プロジェクト名
+project_name: 'Project Name'
+env: local
+
+# Ansible実行ファイル
+ansible_file_path: 'ansible/site.yml'
+host_file_path: 'ansible/host'
+ansible_limit: 'all'
+
+# ホスト
+hostname: local.dev
+local_hostname: local-dev.jp
+
+# ipアドレス
+ip: 192.168.33.30
+
+# WEBフォルダ共有設定
+sync_folder:   'www/'
+document_root: '/var/www/'
+
+# ユーザ情報
+user: vagrant
+
+## 追加ユーザ
+users_username: "develop"
+users_password: "password"
+users_group: "develop"
+#users_groups: "develop"
+
+
+# nginx設定
+nginx_user: nginx
+nginx_group: nginx
+worker_processes: auto
+nginx_port: 50000
+key_file: /etc/nginx/ssl/nginx.key
+cert_file: /etc/nginx/ssl/nginx.crt
+
+## Laravelアプリケーションの名前
+laravel_app_name: lalavel_app
+
+# php Version
+php_version: 7.2.11
+php_repo: "remi-php71"
+php_packages:
+  - php-cli
+  - php-common
+  - php-devel
+  - php-fpm
+  - php-gd
+  - php-mbstring
+  - php-opcache
+  - php-pdo
+  - php-pear
+  - php-xml
+  - php-xmlrpc
+  - php-xsl
+  - php-mcrypt
+  - php-mysqlnd
+  - php-zip
+
+# OpCache settings (useful for PHP >=5.5).
+php_opcache_zend_extension: "opcache.so"
+php_opcache_enable: "1"
+php_opcache_enable_cli: "0"
+php_opcache_memory_consumption: "96"
+php_opcache_interned_strings_buffer: "16"
+php_opcache_max_accelerated_files: "4096"
+php_opcache_max_wasted_percentage: "5"
+php_opcache_validate_timestamps: "1"
+php_opcache_revalidate_path: "0"
+php_opcache_revalidate_freq: "2"
+php_opcache_max_file_size: "0"
+php_opcache_blacklist_filename: "/etc/php.d/opcache*.blacklist"
+
+#php-fpm
+max_children: 20
+start_servers: 2
+min_spare_servers: 1
+max_spare_servers: 10
+
+#error display
+display_errors: On
+error_reporting: E_ALL & ~E_DEPRECATED
+expose_php: On
+
+# Xdebug IDE key
+xdebug_enable: on
+xdebug_idekey: VAGRANT
+xdebug_port: 9000
+
+# MySQL
+mysql_db_host: db.develop.private
+mysql_db_user: develop
+mysql_db_pw:   password
+mysql_db_name: develop_db
+mysql_db_name_test_env: develop_db_testing
+mysql_db_user_host_test_env: '192.168.33.%'
+mysqld_5_7:
+  # root パスワード
+  root_password: password
+  # 接続用設定ファイルパス
+  defaults_file: /root/.my.cnf
+  mycnf: /etc/my.cnf
+  mysql_slow_query_log_file: /var/log/mysql-slow.log
+  mysql_slow_query_time: "2"
+
